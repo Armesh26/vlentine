@@ -949,8 +949,12 @@ body {
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
+    .stage {
+        padding: 30px 15px;
+    }
+    
     .title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .big-title {
@@ -959,29 +963,74 @@ body {
     
     .subtitle {
         font-size: 1.1rem;
+        padding: 0 10px;
     }
     
     .cat-body {
-        width: 120px;
-        height: 100px;
+        width: 100px;
+        height: 85px;
     }
     
-    .selection-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+    .cat-ear {
+        width: 30px;
+        height: 38px;
     }
     
-    .select-item {
-        padding: 15px 10px;
+    .cat-eye {
+        width: 24px;
+        height: 26px;
+        top: 28px;
     }
     
-    .select-icon {
-        font-size: 2rem;
+    .cat-eye.left { left: 20px; }
+    .cat-eye.right { right: 20px; }
+    
+    .cat-nose {
+        top: 52px;
+        width: 12px;
+        height: 9px;
+    }
+    
+    .cat-mouth {
+        top: 60px;
+        width: 24px;
+        height: 12px;
+    }
+    
+    .cat-blush {
+        top: 48px;
+        width: 18px;
+        height: 9px;
+    }
+    
+    .drawing-wrapper {
+        padding: 30px 15px;
+        margin: 15px 10px;
+        width: calc(100% - 20px);
+    }
+    
+    .blob-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .blob-item {
+        padding: 12px 6px;
+    }
+    
+    .blob-icon {
+        font-size: 1.8rem;
+        margin-bottom: 4px;
+    }
+    
+    .blob-item span {
+        font-size: 0.7rem;
     }
     
     .question-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
     
     .btn-yes {
@@ -989,34 +1038,138 @@ body {
         padding: 15px 50px;
     }
     
+    .btn-no {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
     .success-cats {
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
+        transform: scale(0.8);
     }
     
     .success-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+    
+    .success-message {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+    
+    .success-message.big {
+        font-size: 1.5rem;
+    }
+    
+    .love-note {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+    
+    .love-note p {
+        font-size: 1.1rem;
+    }
+    
+    .question-text {
+        font-size: 1.6rem;
+        padding: 0 15px;
+    }
+    
+    .hints-container {
+        padding: 0 10px;
+        max-width: 100%;
+    }
+    
+    .hint {
+        padding: 12px 15px;
+        gap: 10px;
+    }
+    
+    .hint-text {
+        font-size: 0.95rem;
+    }
+    
+    .drawing-tools {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .tease-text {
+        padding: 0 20px;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
     .title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     
-    .selection-grid {
+    .big-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .drawing-wrapper {
+        padding: 20px 10px;
+    }
+    
+    .blob-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
     
-    .select-item span {
-        font-size: 0.85rem;
+    .blob-icon {
+        font-size: 1.6rem;
+    }
+    
+    .blob-item span {
+        font-size: 0.65rem;
     }
     
     .password-input {
-        width: 200px;
-        font-size: 1.5rem;
-        letter-spacing: 5px;
+        width: 180px;
+        font-size: 1.3rem;
+        letter-spacing: 4px;
+        padding: 12px 15px;
+    }
+    
+    .question-text {
+        font-size: 1.4rem;
+    }
+    
+    .btn-yes {
+        font-size: 1.2rem;
+        padding: 12px 40px;
+    }
+    
+    .success-title {
+        font-size: 1.8rem;
+    }
+    
+    .big-heart {
+        font-size: 2.5rem;
+    }
+}
+
+/* Ensure touch targets are large enough */
+@media (pointer: coarse) {
+    .btn {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    .blob-item {
+        min-height: 80px;
     }
 }
 
