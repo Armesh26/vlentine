@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 A Special Message for Anushka 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <!-- STAGE 0: Welcome -->
+    <section id="stage-welcome" class="stage active">
+        <div class="nubcat welcome-cat">
+            <div class="cat-body">
+                <div class="cat-ear left"></div>
+                <div class="cat-ear right"></div>
+                <div class="cat-face">
+                    <div class="cat-eye left"><div class="pupil"></div></div>
+                    <div class="cat-eye right"><div class="pupil"></div></div>
+                    <div class="cat-nose"></div>
+                    <div class="cat-mouth"></div>
+                    <div class="cat-blush left"></div>
+                    <div class="cat-blush right"></div>
+                </div>
+            </div>
+            <div class="cat-tail"></div>
+        </div>
+        <h1 class="title bounce">Hey Anushka! 💖</h1>
+        <p class="subtitle">I have a very important question for you...</p>
+        <p class="subtitle">But first, you must prove yourself worthy! 💕</p>
+        <button class="btn btn-primary" onclick="goToStage('stage-password')">
+            I'm Ready! ✨
+        </button>
+    </section>
+
+    <!-- STAGE 1: Password Game -->
+    <section id="stage-password" class="stage">
+        <div class="nubcat thinking-cat">
+            <div class="cat-body">
+                <div class="cat-ear left"></div>
+                <div class="cat-ear right"></div>
+                <div class="cat-face">
+                    <div class="cat-eye left squint"><div class="pupil"></div></div>
+                    <div class="cat-eye right squint"><div class="pupil"></div></div>
+                    <div class="cat-nose"></div>
+                    <div class="cat-mouth thinking"></div>
+                    <div class="cat-blush left"></div>
+                    <div class="cat-blush right"></div>
+                </div>
+                <div class="thought-bubble">🤔</div>
+            </div>
+        </div>
+        <h2 class="title">🔐 Task 1: Secret Code!</h2>
+        <p class="subtitle">Enter the magical date that started our story...</p>
+        
+        <div class="hints-container">
+            <div class="hint" id="hint1">
+                <span class="hint-icon">💡</span>
+                <span class="hint-text">Hint 1: Think of a date that's special to US... 6 digits~</span>
+            </div>
+            <div class="hint hidden" id="hint2">
+                <span class="hint-icon">💭</span>
+                <span class="hint-text">Hint 2: Day first, then month, then year (2 digits each)</span>
+            </div>
+            <div class="hint hidden" id="hint3">
+                <span class="hint-icon">🌟</span>
+                <span class="hint-text">Hint 3: The day it all began... 💕</span>
+            </div>
+        </div>
+        
+        <div class="password-container">
+            <input type="text" id="password-input" class="password-input" placeholder="Enter the date..." maxlength="6">
+            <div class="password-error hidden" id="password-error">Hmm, that's not it! Try again~ 💕</div>
+        </div>
+        
+        <div class="btn-group">
+            <button class="btn btn-secondary" onclick="showNextHint()">Need a hint? 🤔</button>
+            <button class="btn btn-primary" onclick="checkPassword()">Submit! 💝</button>
+        </div>
+    </section>
+
+    <!-- STAGE 2: Circle the Parts -->
+    <section id="stage-select" class="stage">
+        <h2 class="title">🎨 Task 2: Circle My Favorite Part of You!</h2>
+        <p class="subtitle">Draw a circle around what you think is my favorite thing about you~ 💕</p>
+        <p class="subtitle small">(Psst... I'm very greedy when it comes to you 😏)</p>
+        
+        <div class="drawing-wrapper">
+            <canvas id="drawing-canvas"></canvas>
+            <div class="blob-grid" id="blob-grid">
+                <div class="blob-item" data-part="eyes">
+                    <div class="blob-icon">👀</div>
+                    <span>Beautiful Eyes</span>
+                </div>
+                <div class="blob-item" data-part="smile">
+                    <div class="blob-icon">😊</div>
+                    <span>Gorgeous Smile</span>
+                </div>
+                <div class="blob-item" data-part="personality">
+                    <div class="blob-icon">✨</div>
+                    <span>Personality</span>
+                </div>
+                <div class="blob-item" data-part="ears">
+                    <div class="blob-icon">👂</div>
+                    <span>Cute Ears</span>
+                </div>
+                <div class="blob-item" data-part="hair">
+                    <div class="blob-icon">💇‍♀️</div>
+                    <span>Pretty Hair</span>
+                </div>
+                <div class="blob-item" data-part="hands">
+                    <div class="blob-icon">🤲</div>
+                    <span>Soft Hands</span>
+                </div>
+                <div class="blob-item" data-part="legs">
+                    <div class="blob-icon">🦵</div>
+                    <span>Lovely Legs</span>
+                </div>
+                <div class="blob-item" data-part="curves">
+                    <div class="blob-icon">🍈🍈</div>
+                    <span>Perfect Curves</span>
+                </div>
+                <div class="blob-item" data-part="booty">
+                    <div class="blob-icon">🍑</div>
+                    <span>Peachy Booty</span>
+                </div>
+                <div class="blob-item" data-part="heart">
+                    <div class="blob-icon">💖</div>
+                    <span>Loving Heart</span>
+                </div>
+                <div class="blob-item" data-part="brain">
+                    <div class="blob-icon">🧠</div>
+                    <span>Smart Brain</span>
+                </div>
+                <div class="blob-item" data-part="voice">
+                    <div class="blob-icon">🎤</div>
+                    <span>Sweet Voice</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="drawing-tools">
+            <button class="btn btn-secondary btn-small" onclick="clearCanvas()">🗑️ Clear</button>
+            <span class="circled-count" id="circled-count">Circled: 0/12</span>
+        </div>
+        
+        <div class="selection-feedback hidden" id="selection-feedback">
+            <span id="feedback-text"></span>
+        </div>
+        
+        <button class="btn btn-primary" onclick="checkDrawing()">I've circled my answer! 💕</button>
+    </section>
+
+    <!-- STAGE 3: The Big Question -->
+    <section id="stage-question" class="stage">
+        <div class="nubcat love-cat">
+            <div class="cat-body float">
+                <div class="cat-ear left"></div>
+                <div class="cat-ear right"></div>
+                <div class="cat-face">
+                    <div class="cat-eye left heart-eyes">💕</div>
+                    <div class="cat-eye right heart-eyes">💕</div>
+                    <div class="cat-nose"></div>
+                    <div class="cat-mouth love"></div>
+                    <div class="cat-blush left big-blush"></div>
+                    <div class="cat-blush right big-blush"></div>
+                </div>
+                <div class="hearts-around">
+                    <span class="floating-heart h1">💖</span>
+                    <span class="floating-heart h2">💕</span>
+                    <span class="floating-heart h3">💗</span>
+                    <span class="floating-heart h4">💓</span>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="title big-title rainbow-text">Anushka...</h1>
+        <h2 class="question-text">Will You Be My Valentine? 💝</h2>
+        
+        <div class="question-buttons">
+            <button class="btn btn-yes" id="btn-yes" onclick="sayYes()">
+                Yes! 💖
+            </button>
+            <button class="btn btn-no" id="btn-no">
+                No 😢
+            </button>
+        </div>
+        <p class="tease-text hidden" id="tease-text">Hehe, you can't escape my love~ 😏💕</p>
+    </section>
+
+    <!-- STAGE 4: Success! -->
+    <section id="stage-success" class="stage">
+        <div class="confetti-container" id="confetti"></div>
+        <div class="success-cats">
+            <div class="nubcat couple-cat left-cat">
+                <div class="cat-body bounce-slow">
+                    <div class="cat-ear left"></div>
+                    <div class="cat-ear right"></div>
+                    <div class="cat-face">
+                        <div class="cat-eye left heart-eyes">💕</div>
+                        <div class="cat-eye right heart-eyes">💕</div>
+                        <div class="cat-nose"></div>
+                        <div class="cat-mouth super-happy"></div>
+                        <div class="cat-blush left big-blush"></div>
+                        <div class="cat-blush right big-blush"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="big-heart">💖</div>
+            <div class="nubcat couple-cat right-cat">
+                <div class="cat-body bounce-slow delay">
+                    <div class="cat-ear left"></div>
+                    <div class="cat-ear right"></div>
+                    <div class="cat-face">
+                        <div class="cat-eye left heart-eyes">💕</div>
+                        <div class="cat-eye right heart-eyes">💕</div>
+                        <div class="cat-nose"></div>
+                        <div class="cat-mouth super-happy"></div>
+                        <div class="cat-blush left big-blush"></div>
+                        <div class="cat-blush right big-blush"></div>
+                    </div>
+                    <div class="bow">🎀</div>
+                </div>
+            </div>
+        </div>
+        
+        <h1 class="title success-title">YAAAAY! 🎉💖🎉</h1>
+        <p class="success-message">I knew you'd say yes! 😭💕</p>
+        <p class="success-message">You just made me the happiest person in the world!</p>
+        <p class="success-message big">I love you, Anushka! 💝</p>
+        
+        <div class="love-note">
+            <p>Every moment with you is magical ✨</p>
+            <p>Thank you for being my person 🌸</p>
+            <p>Here's to us and all our adventures! 💕✨💕</p>
+        </div>
+        
+        <div class="final-message">
+            <span>Forever yours,</span>
+            <span class="signature">Your one and only 💖</span>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
