@@ -413,6 +413,19 @@ function initNoButton() {
     // Touch handler for mobile - activates on first touch
     noBtn.addEventListener('touchstart', (e) => {
         e.preventDefault();
+        
+        // Play MEGALOVANIA on first touch! 😈 (mobile)
+        if (!noButtonActivated) {
+            // Stop the cute background music
+            stopBackgroundMusic();
+            
+            // Start the battle music!
+            megalovaniaAudio = new Audio('MEGALOVANIA.mp3');
+            megalovaniaAudio.currentTime = 30;
+            megalovaniaAudio.volume = 0.7;
+            megalovaniaAudio.play().catch(err => console.log('Audio failed:', err));
+        }
+        
         noButtonActivated = true; // Activate after first touch
         const touch = e.touches[0];
         const btnRect = noBtn.getBoundingClientRect();
