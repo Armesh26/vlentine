@@ -12,6 +12,15 @@ const totalParts = 12; // Total body parts to circle
 let noButtonMoveCount = 0;
 let bgMusic = null; // Background music (silliest of them all)
 
+// Preload audio files for instant playback
+let wowSound = null;
+function preloadAudio() {
+    wowSound = new Audio('Anime WOW - Sound Effect (HD).mp3');
+    wowSound.load();
+}
+// Preload when page loads
+document.addEventListener('DOMContentLoaded', preloadAudio);
+
 // Canvas drawing state
 let canvas, ctx;
 let isDrawing = false;
@@ -544,9 +553,11 @@ function sayYes() {
         megalovaniaAudio.currentTime = 0;
     }
     
-    // Play the WOW sound effect!
-    const wowSound = new Audio('Anime WOW - Sound Effect (HD).mp3');
-    wowSound.play().catch(e => console.log('Audio play failed:', e));
+    // Play the preloaded WOW sound effect instantly!
+    if (wowSound) {
+        wowSound.currentTime = 0;
+        wowSound.play().catch(e => console.log('Audio play failed:', e));
+    }
     
     goToStage('stage-success');
 }
